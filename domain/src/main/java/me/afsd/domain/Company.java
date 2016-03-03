@@ -1,5 +1,6 @@
 package me.afsd.domain;
 
+import me.afsd.domain.base.DomainName;
 import org.springframework.data.jpa.domain.AbstractAuditable;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -15,6 +16,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="company")
+@DomainName("公司")
 @EntityListeners({AuditingEntityListener.class})
 public class Company extends AbstractAuditable<User,Long> {
     @Column

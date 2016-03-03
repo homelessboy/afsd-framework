@@ -3,6 +3,7 @@ package me.afsd.dao.base;
 import me.afsd.dao.UserRepository;
 import me.afsd.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.AuditorAware;
 
 /**
@@ -11,6 +12,7 @@ import org.springframework.data.domain.AuditorAware;
  * Time: 11:05
  */
 public class AuditorAwareBean implements AuditorAware<User> {
+    @Qualifier("userRepository")
     @Autowired
     private UserRepository userRepository;
 

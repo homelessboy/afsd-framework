@@ -25,4 +25,6 @@ public interface BaseRepository<T, ID extends Serializable>
 
     List<T> findAll(Specification<T> spec);
 
+    String getDomainName();
+
 }

@@ -21,11 +21,6 @@ public class User extends AbstractAuditable<User,Long> {
     @Column
     private String pwd;
 
-    @PreUpdate
-    public void checkUpdate(){
-
-    }
-
     public String getName() {
         return name;
     }

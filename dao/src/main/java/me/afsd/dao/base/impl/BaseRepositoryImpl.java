@@ -2,6 +2,7 @@ package me.afsd.dao.base.impl;
 
 import me.afsd.dao.base.BaseRepository;
 import me.afsd.domain.base.CanLogicDomain;
+import me.afsd.domain.base.DomainName;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.domain.Specifications;
@@ -70,6 +71,14 @@ public class BaseRepositoryImpl<T, ID extends Serializable>
         LogicSpecification logicSpecification = new LogicSpecification();
         spec = Specifications.where(spec).and(logicSpecification);
         return spec;
+    }
+
+    @Override
+    public String getDomainName(){
+        DomainName name=getDomainClass().getAnnotation(DomainName.class);
+        if(name!=null&&name.value()!=null&&!name.value().isEmpty())
+            return name.value();
+        return null;
     }
 
     class LogicSpecification implements Specification<T> {

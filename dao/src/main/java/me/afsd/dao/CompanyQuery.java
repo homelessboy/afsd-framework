@@ -1,5 +1,8 @@
-package me.afsd.dao.base.query;
+package me.afsd.dao;
 
+import me.afsd.dao.base.query.MatchType;
+import me.afsd.dao.base.query.Query;
+import me.afsd.dao.base.query.QueryWord;
 import me.afsd.domain.Company;
 
 /**

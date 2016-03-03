@@ -5,6 +5,7 @@ import me.afsd.service.CompanyService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -19,6 +20,7 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ICompanyDaoTest {
 
+    @Qualifier("companyRepository")
     @Autowired
     private CompanyRepository companyRepository;
 
@@ -52,9 +54,9 @@ public class ICompanyDaoTest {
 
     @Test
     public void testService(){
-
+        CompanyQuery query=new CompanyQuery();
         List<Company> companyList=companyService.findAll();
-        System.out.println("in");
+        System.out.println("in"+companyService.getDomainName());
     }
 
 }
