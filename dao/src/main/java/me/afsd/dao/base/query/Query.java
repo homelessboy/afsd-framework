@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * User: XuHui
+ * User: afsd
  * Date: 2016/2/29
  * Time: 17:39
  */
@@ -125,21 +125,22 @@ public class Query<T> implements Serializable {
 
     public Sort asSort() {
         List<Sort.Order> orders = new ArrayList<>();
-        Field[] fields = this.getClass().getDeclaredFields();
-        if (fields != null) {
-            for (Field field : fields) {
-                OrderWord orderWord = field.getAnnotation(OrderWord.class);
-                field.setAccessible(true);
-                try {
-                    int weight = (int) field.get(this);
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                }
-                if (orderWord != null) {
-
-                }
-            }
-        }
+//        Field[] fields = this.getClass().getDeclaredFields();
+//        if (fields != null) {
+//            for (Field field : fields) {
+//                OrderWord orderWord = field.getAnnotation(OrderWord.class);
+//                field.setAccessible(true);
+//                try {
+//                    int weight = (int) field.get(this);
+//                } catch (IllegalAccessException e) {
+//                    e.printStackTrace();
+//                }
+//                if (orderWord != null) {
+//
+//                }
+//            }
+//        }
+        //TODO: 后续支持查询丰富的排序接口
         return !orders.isEmpty() ? DEFAULT_SORT : new Sort(orders);
     }
 

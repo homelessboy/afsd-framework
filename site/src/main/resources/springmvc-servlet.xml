@@ -20,16 +20,6 @@
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">
                 <property name="supportedMediaTypes" value="text/html;charset=UTF-8"/>
             </bean>
-            <!--<bean class="com.simpletour.controller.support.XssCleanJsonHttpMsgConverter">-->
-            <!--<property name="supportedMediaTypes" value="application/json;charset=UTF-8"/>-->
-            <!--<property name="features">-->
-            <!--<list>-->
-            <!--<value>WriteDateUseDateFormat</value>-->
-            <!--<value>SkipTransientField</value>-->
-            <!--<value>DisableCircularReferenceDetect</value>-->
-            <!--</list>-->
-            <!--</property>-->
-            <!--</bean>-->
         </mvc:message-converters>
     </mvc:annotation-driven>
 
@@ -55,17 +45,16 @@
         <property name="templateEngine" ref="templateEngine"/>
         <property name="characterEncoding" value="UTF-8"/>
     </bean>
-    <!--<bean id="beansValidator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">-->
-        <!--<property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>-->
-        <!--<property name="validationMessageSource" ref="messageSource"/>-->
-    <!--</bean>-->
-    <!--<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">-->
-        <!--<property name="basenames" value="classpath:validationMessage"/>-->
-        <!--<property name="defaultEncoding" value="UTF-8"/>-->
-    <!--</bean>-->
-
+    <bean id="beansValidator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+        <property name="validationMessageSource" ref="messageSource"/>
+    </bean>
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames" value="classpath:validationMessage"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
     <!-- 定义无需Controller的url<->view直接映射 -->
-    <!--<mvc:view-controller path="/" view-name="redirect:/welcome"/>-->
+    <mvc:view-controller path="/" view-name="redirect:/welcome"/>
 
     <!-- 添加 Shiro Spring AOP 权限注解的支持 -->
     <aop:config proxy-target-class="true"/>

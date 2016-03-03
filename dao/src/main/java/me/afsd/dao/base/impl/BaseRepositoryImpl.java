@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.support.CrudMethodMetadata;
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -19,7 +21,7 @@ import javax.persistence.criteria.Root;
 import java.io.Serializable;
 
 /**
- * User: XuHui
+ * User: afsd
  * Date: 2016/1/28
  * Time: 20:13
  */
@@ -42,18 +44,17 @@ public class BaseRepositoryImpl<T, ID extends Serializable>
         this.metadata = crudMethodMetadata;
     }
 
-//    @Override
-//    @Transactional
-//    public void delete(T entity) {
-//
-//        Assert.notNull(entity, "The entity must not be null!");
-//        if (CanLogicDomain.class.isAssignableFrom(entity.getClass())) {
-//            ((CanLogicDomain) entity).setDel(true);
-//            save(entity);
-//        } else {
-//            em.remove(em.contains(entity) ? entity : em.merge(entity));
-//        }
-//    }
+    @Override
+    @Transactional
+    public void delete(T entity) {
+        Assert.notNull(entity, "The entity must not be null!");
+        if (CanLogicDomain.class.isAssignableFrom(entity.getClass())) {
+            ((CanLogicDomain) entity).setDel(true);
+            save(entity);
+        } else {
+            em.remove(em.contains(entity) ? entity : em.merge(entity));
+        }
+    }
 
     @Override
     protected TypedQuery<T> getQuery(Specification<T> spec, Sort sort) {

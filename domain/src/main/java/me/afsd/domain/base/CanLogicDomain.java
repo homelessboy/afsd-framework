@@ -1,7 +1,7 @@
 package me.afsd.domain.base;
 
 /**
- * User: XuHui
+ * User: afsd
  * Date: 2016/2/12
  * Time: 16:10
  */

@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * User: XuHui
+ * User: afsd
  * Date: 2016/3/1
  * Time: 17:47
  */

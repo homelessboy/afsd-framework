@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 /**
- * User: XuHui
+ * User: afsd
  * Date: 2016/3/3
  * Time: 16:50
  */
@@ -21,6 +21,6 @@ public class CompanyService extends BaseService<Company,Long> {
 
     @Override
     protected BaseRepository<Company, Long> getRepository() {
-        return (BaseRepository<Company, Long>) baseRepository;
+        return baseRepository;
     }
 }

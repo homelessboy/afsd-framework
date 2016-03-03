@@ -3,7 +3,7 @@ package me.afsd.dao.base.query;
 import me.afsd.domain.Company;
 
 /**
- * User: XuHui
+ * User: afsd
  * Date: 2016/3/1
  * Time: 11:30
  */

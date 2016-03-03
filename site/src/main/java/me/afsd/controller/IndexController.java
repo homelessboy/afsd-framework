@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * User: XuHui
+ * User: afsd
  * Date: 2016/1/21
  * Time: 14:26
  */

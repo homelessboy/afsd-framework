@@ -4,7 +4,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
- * User: XuHui
+ * User: afsd
  * Date: 2016/1/21
  * Time: 15:49
  */

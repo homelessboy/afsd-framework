@@ -5,7 +5,7 @@ import me.afsd.domain.User;
 import org.springframework.stereotype.Repository;
 
 /**
- * User: XuHui
+ * User: afsd
  * Date: 2016/2/13
  * Time: 11:39
  */

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.AuditorAware;
 
 /**
- * User: XuHui
+ * User: afsd
  * Date: 2016/2/13
  * Time: 11:05
  */

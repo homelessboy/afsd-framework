@@ -7,7 +7,7 @@ import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
 /**
- * User: XuHui
+ * User: afsd
  * Date: 2016/2/12
  * Time: 16:11
  */

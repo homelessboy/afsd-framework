@@ -9,7 +9,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.Table;
 
 /**
- * User: XuHui
+ * User: afsd
  * Date: 2016/1/26
  * Time: 17:39
  */

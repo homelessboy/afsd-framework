@@ -1,7 +1,7 @@
 package me.afsd.dao.base.query;
 
 /**
- * User: XuHui
+ * User: afsd
  * Date: 2016/2/29
  * Time: 18:11
  */

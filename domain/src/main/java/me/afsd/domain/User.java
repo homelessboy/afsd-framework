@@ -7,7 +7,7 @@ import javax.persistence.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 /**
- * User: XuHui
+ * User: afsd
  * Date: 2016/2/13
  * Time: 11:37
  */
