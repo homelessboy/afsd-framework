@@ -15,7 +15,7 @@
         
         <spring.version>4.2.2.RELEASE</spring.version>
         <spring.data.version>1.9.4.RELEASE</spring.data.version>
-        <joda.time.version>1.2.1</joda.time.version>
+        <joda.time.version>2.9.2</joda.time.version>
         <servlet.version>3.1.0</servlet.version>
         <hibernate.version>5.0.3.Final</hibernate.version>
         <thymeleaf-spring4>2.1.4.RELEASE</thymeleaf-spring4>

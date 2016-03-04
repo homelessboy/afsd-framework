@@ -2,6 +2,7 @@ package me.afsd.service.base;
 
 import me.afsd.dao.base.BaseRepository;
 import me.afsd.dao.base.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -18,53 +19,64 @@ import java.util.List;
  */
 @NoRepositoryBean
 public abstract class BaseService<T,ID extends Serializable> {
+    @Autowired
+    protected BaseRepository<T,ID> repository;
+    @Autowired(required = false)
+    protected BaseBiz<T,ID> biz;
 
     public <S extends T> S save(S entity) {
-        return getRepository().save(entity);
+        System.out.println(entity.getClass().getName());
+        if(biz!=null) biz.save(entity);
+        return repository.save(entity);
     }
 
     public <S extends T> Iterable<S> save(Iterable<S> entities) {
-        return getRepository().save(entities);
+        if(biz!=null) biz.save(entities);
+        return repository.save(entities);
     }
 
     public <S extends T> S saveAndFlush(S entity) {
-        return getRepository().saveAndFlush(entity);
+        if(biz!=null) biz.saveAndFlush(entity);
+        return repository.saveAndFlush(entity);
     }
 
     public void flush(){
-        getRepository().flush();
+        repository.flush();
     }
 
     public T getOne(ID id) {
-        return getRepository().getOne(id);
+        return repository.getOne(id);
     }
 
     public void delete(ID id){
-        getRepository().delete(id);
+        if(biz!=null) biz.delete(id);
+        repository.delete(id);
     }
 
     public void delete(T entity) {
-        getRepository().delete(entity);
+        if(biz!=null) biz.delete(entity);
+        repository.delete(entity);
     }
 
     public void delete(Iterable<? extends T> entities){
-        getRepository().delete(entities);
+        if(biz!=null) biz.delete(entities);
+        repository.delete(entities);
     }
 
     public List<T> findAll(){
-        return getRepository().findAll();
+        return repository.findAll();
     }
 
     public List<T> findAll(Specification<T> spec){
-        return getRepository().findAll(spec);
+        return repository.findAll(spec);
     }
 
     public List<T> findAll(Specification<T> spec,Sort sort){
-        return getRepository().findAll(spec,sort);
+        return repository.findAll(spec, sort);
     }
 
     public Page<T> findAll(Specification spec,Pageable pageable){
-        return getRepository().findAll(spec,pageable);
+        return repository.findAll(spec, pageable);
     }
 
     public Page<T> findAll(Query<T> query){
@@ -72,8 +84,7 @@ public abstract class BaseService<T,ID extends Serializable> {
     }
 
     public String getDomainName(){
-        return getRepository().getDomainName();
+        return repository.getDomainName();
     }
 
-    protected abstract BaseRepository<T,ID> getRepository();
 }

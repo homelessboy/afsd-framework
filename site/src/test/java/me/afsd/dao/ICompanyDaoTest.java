@@ -59,4 +59,18 @@ public class ICompanyDaoTest {
         System.out.println("in"+companyService.getDomainName());
     }
 
+    @Test
+    public void testSave(){
+        Company company=new Company();
+        company.setName("test4");
+        company.setAddress("天堂路8号");
+        companyService.save(company);
+        System.out.println("in");
+    }
+
+    @Test
+    public void testFindByName(){
+        List<Company> companies=companyRepository.findByName("test4");
+        System.out.println(companies.size());
+    }
 }
