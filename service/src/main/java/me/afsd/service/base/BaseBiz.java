@@ -7,7 +7,7 @@ import org.springframework.data.repository.NoRepositoryBean;
 import java.io.Serializable;
 
 /**
- * User: XuHui
+ * User: afsd
  * Date: 2016/3/4
  * Time: 10:16
  */

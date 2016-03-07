@@ -5,7 +5,7 @@ import me.afsd.service.base.BaseBiz;
 import org.springframework.stereotype.Component;
 
 /**
- * User: XuHui
+ * User: afsd
  * Date: 2016/3/4
  * Time: 10:28
  */

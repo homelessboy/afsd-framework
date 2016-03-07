@@ -1,13 +1,11 @@
 package me.afsd.domain;
 
 import me.afsd.domain.base.DomainName;
+import me.afsd.domain.base.StringRemarkEnmu;
 import org.springframework.data.jpa.domain.AbstractAuditable;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * User: afsd

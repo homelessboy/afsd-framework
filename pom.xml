@@ -27,6 +27,7 @@
         <fastjson.version>1.2.0</fastjson.version>
         <jboss-logging>3.3.0.Final</jboss-logging>
         <!--<javassist.version>3.19.0-GA</javassist.version>-->
+        <poi.version>3.14</poi.version>
         <junit>4.12</junit>
     </properties>
 
@@ -162,6 +163,12 @@
                 <!--<artifactId>javassist</artifactId>-->
                 <!--<version>${javassist.version}</version>-->
             <!--</dependency>-->
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.thymeleaf</groupId>
