@@ -10,6 +10,7 @@ import java.io.Serializable;
 public abstract class BaseForm<T,ID extends Serializable> {
     protected String model;
     protected ID id;
+    protected String name;
 
     public BaseForm(){
     }
@@ -36,5 +37,13 @@ public abstract class BaseForm<T,ID extends Serializable> {
 
     public void setId(ID id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

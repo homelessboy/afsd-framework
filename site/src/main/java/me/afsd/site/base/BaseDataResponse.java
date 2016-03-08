@@ -2,6 +2,7 @@ package me.afsd.site.base;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.annotation.JSONField;
+import me.afsd.service.base.BaseException;
 import org.springframework.context.MessageSource;
 import org.springframework.validation.BindingResult;
 
@@ -103,6 +104,12 @@ public class BaseDataResponse implements Serializable, Cloneable {
         this.msg = action.getMsg();
         this.detail = action.getDetail();
         this.jumpUrl = action.getJumpUrl();
+        return this;
+    }
+
+    public BaseDataResponse error(BaseException e){
+        this.msg="操作失败";
+        this.detail=e.getMessage();
         return this;
     }
 

@@ -27,6 +27,10 @@ public class Company extends AbstractAuditable<User,Long> {
         super();
     }
 
+    public void setId(Long id){
+        super.setId(id);
+    }
+
     public String getName() {
         return name;
     }
