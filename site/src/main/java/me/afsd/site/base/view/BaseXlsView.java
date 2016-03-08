@@ -62,7 +62,7 @@ public abstract class BaseXlsView extends AbstractXlsView {
                 return newFileName;
             }
             if ((agent != null) && (agent.contains("Mozilla")))
-                return MimeUtility.encodeText(fileName, "UTF-8", "B");
+                return new String(fileName.getBytes("GB2312"),"ISO-8859-1");
 
             return fileName;
         } catch (Exception ex) {
