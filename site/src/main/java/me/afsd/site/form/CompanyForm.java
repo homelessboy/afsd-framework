@@ -1,4 +1,4 @@
-package me.afsd.form;
+package me.afsd.site.form;
 
 import me.afsd.domain.Company;
 import me.afsd.site.base.BaseForm;

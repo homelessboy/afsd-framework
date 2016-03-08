@@ -1,8 +1,8 @@
-package me.afsd.controller;
+package me.afsd.site.controller;
 
 import me.afsd.dao.CompanyQuery;
 import me.afsd.domain.Company;
-import me.afsd.form.CompanyForm;
+import me.afsd.site.form.CompanyForm;
 import me.afsd.site.base.BaseDataResponse;
 import me.afsd.site.base.BaseForm;
 import me.afsd.site.base.CrudController;

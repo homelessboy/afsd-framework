@@ -1,4 +1,4 @@
-package me.afsd.controller;
+package me.afsd.site.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

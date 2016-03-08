@@ -107,7 +107,7 @@ public class BaseDataResponse implements Serializable, Cloneable {
         return this;
     }
 
-    public BaseDataResponse error(BaseException e){
+    public BaseDataResponse error(Exception e){
         this.msg="操作失败";
         this.detail=e.getMessage();
         return this;
