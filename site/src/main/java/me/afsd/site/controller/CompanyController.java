@@ -2,10 +2,10 @@ package me.afsd.site.controller;
 
 import me.afsd.dao.CompanyQuery;
 import me.afsd.domain.Company;
-import me.afsd.site.form.CompanyForm;
 import me.afsd.site.base.BaseDataResponse;
 import me.afsd.site.base.BaseForm;
 import me.afsd.site.base.CrudController;
+import me.afsd.site.form.CompanyForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

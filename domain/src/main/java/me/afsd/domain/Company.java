@@ -23,6 +23,27 @@ public class Company extends AbstractAuditable<User,Long> {
     @Column()
     private String address;
 
+    @Column
+    @Enumerated(EnumType.STRING)
+    private Status status=Status.online;
+
+    enum Status implements StringRemarkEnmu{
+        online("上线"),offline("下线");
+
+        private String remark;
+        Status(String remark){
+            this.remark=remark;
+        }
+
+        @Override
+        public String getRemark() {
+            return null;
+        }
+        public boolean equal(Status status){
+            return this.name().equals(status.name());
+        }
+    }
+
     public Company(){
         super();
     }
