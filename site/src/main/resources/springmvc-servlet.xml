@@ -10,7 +10,7 @@
             http://www.springframework.org/schema/mvc  http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
 
     <!--配置扫描的controller-->
-    <context:component-scan base-package="me.afsd.controller"/>
+    <context:component-scan base-package="me.afsd.site.controller"/>
 
     <mvc:resources mapping="/static/**" location="/static/"/>
     <!--配置spring注解驱动-->

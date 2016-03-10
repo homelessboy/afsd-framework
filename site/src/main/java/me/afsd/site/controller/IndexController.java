@@ -1,6 +1,7 @@
 package me.afsd.site.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -12,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("")
 public class IndexController {
 
-    @RequestMapping("")
-    public String index(){
-        return "hello";
+    @RequestMapping("test/{path}")
+    public String index(@PathVariable String path){
+        return path;
     }
 }
