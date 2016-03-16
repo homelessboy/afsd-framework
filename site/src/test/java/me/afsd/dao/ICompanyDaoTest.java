@@ -2,13 +2,29 @@ package me.afsd.dao;
 
 import me.afsd.domain.Company;
 import me.afsd.service.CompanyService;
+import me.afsd.site.hadoop.Hadoop;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.hbase.client.HTable;
+import org.apache.hadoop.hbase.client.HTableInterface;
+import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.util.Bytes;
+import org.apache.hadoop.io.IOUtils;
+import org.apache.hadoop.util.Progressable;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.hadoop.hbase.HbaseTemplate;
+import org.springframework.data.hadoop.hbase.RowMapper;
+import org.springframework.data.hadoop.hbase.TableCallback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.io.*;
+import java.net.URI;
 import java.util.List;
 
 /**
@@ -23,6 +39,12 @@ public class ICompanyDaoTest {
     @Qualifier("companyRepository")
     @Autowired
     private CompanyRepository companyRepository;
+
+    @Autowired
+    private Configuration hadoopConfiguration;
+
+    @Autowired
+    private Hadoop hadoop;
 
     @Autowired
     private CompanyService companyService;
@@ -72,5 +94,13 @@ public class ICompanyDaoTest {
     public void testFindByName(){
         List<Company> companies=companyRepository.findByName("test4");
         System.out.println(companies.size());
+    }
+
+    @Test
+    public void testHBase() throws IOException {
+        System.out.println(hadoopConfiguration.get("fs.defaultFS"));
+
+        hadoop.getDateNodeHost();
+//        Hadoop.createNewHDFSFile("/tmp/hello","hello from java");
     }
 }

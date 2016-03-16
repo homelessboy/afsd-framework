@@ -26,6 +26,10 @@
         <slf4j.version>1.7.13</slf4j.version>
         <fastjson.version>1.2.0</fastjson.version>
         <jboss-logging>3.3.0.Final</jboss-logging>
+        <hadoop.version>2.6.4</hadoop.version>
+        <hbase.version>1.1.3</hbase.version>
+        <zookeeper.version>3.4.8</zookeeper.version>
+        <spring.hadoop.version>2.3.0.RELEASE</spring.hadoop.version>
         <!--<javassist.version>3.19.0-GA</javassist.version>-->
         <poi.version>3.14</poi.version>
         <junit>4.12</junit>
@@ -231,6 +235,48 @@
                 <artifactId>junit</artifactId>
                 <version>${junit}</version>
                 <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-core</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-client</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-common</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-tools</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.mrunit</groupId>
+                <artifactId>mrunit</artifactId>
+                <version>0.9.0-incubating</version>
+                <classifier>hadoop1</classifier>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.hbase</groupId>
+                <artifactId>hbase</artifactId>
+                <version>${hbase.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-hadoop</artifactId>
+                <version>${spring.hadoop.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
