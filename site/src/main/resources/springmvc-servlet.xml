@@ -58,4 +58,7 @@
 
     <!-- 添加 Shiro Spring AOP 权限注解的支持 -->
     <aop:config proxy-target-class="true"/>
+
+    <!-- 统一异常处理 -->
+    <bean id="exceptionResolver" class="me.afsd.site.base.handler.BaseExceptionResolver"/>
 </beans>
