@@ -2,6 +2,7 @@ package me.afsd.dao;
 
 import me.afsd.domain.Company;
 import me.afsd.service.CompanyService;
+import me.afsd.service.base.BaseException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * User: afsd
@@ -72,5 +74,16 @@ public class ICompanyDaoTest {
     public void testFindByName(){
         List<Company> companies=companyRepository.findByName("test4");
         System.out.println(companies.size());
+    }
+
+    @Test
+    public void test(){
+        Optional<Company> companyOptional=Optional.ofNullable(null);
+        try {
+            Company company = companyOptional.orElseThrow(() -> new BaseException("空指针"));
+        }catch (BaseException e){
+            System.out.println(e.getMessage());
+        }
+        System.out.println(-1%-2);
     }
 }

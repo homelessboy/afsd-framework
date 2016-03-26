@@ -11,6 +11,7 @@ import org.springframework.data.repository.NoRepositoryBean;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * User: afsd
@@ -24,10 +25,10 @@ public abstract class BaseService<T,ID extends Serializable> {
     @Autowired(required = false)
     protected BaseBiz<T,ID> biz;
 
-    public <S extends T> S save(S entity) {
+    public <S extends T> Optional<S> save(S entity) {
         System.out.println(entity.getClass().getName());
         if(biz!=null) biz.save(entity);
-        return repository.save(entity);
+        return Optional.ofNullable(repository.save(entity));
     }
 
     public <S extends T> Iterable<S> save(Iterable<S> entities) {
@@ -35,17 +36,17 @@ public abstract class BaseService<T,ID extends Serializable> {
         return repository.save(entities);
     }
 
-    public <S extends T> S saveAndFlush(S entity) {
+    public <S extends T> Optional<S> saveAndFlush(S entity) {
         if(biz!=null) biz.saveAndFlush(entity);
-        return repository.saveAndFlush(entity);
+        return Optional.ofNullable(repository.saveAndFlush(entity));
     }
 
     public void flush(){
         repository.flush();
     }
 
-    public T getOne(ID id) {
-        return repository.getOne(id);
+    public Optional<T> getOne(ID id) {
+        return Optional.ofNullable(repository.getOne(id));
     }
 
     public void delete(ID id){

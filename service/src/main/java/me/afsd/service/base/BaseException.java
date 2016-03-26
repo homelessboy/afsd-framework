@@ -1,5 +1,7 @@
 package me.afsd.service.base;
 
+import java.util.function.Supplier;
+
 /**
  * User: afsd
  * Date: 2016/3/4
@@ -7,9 +9,11 @@ package me.afsd.service.base;
  */
 public class BaseException extends RuntimeException {
     private IErrorInfo iErrorInfo;
+
     public BaseException(Throwable cause){
         super(cause);
     }
+
     public BaseException(IErrorInfo iErrorInfo){
         super(iErrorInfo.toString());
         this.iErrorInfo=iErrorInfo;
@@ -29,6 +33,6 @@ public class BaseException extends RuntimeException {
 
     @Override
     public String getMessage(){
-        return getMessage();
+        return super.getMessage();
     }
 }

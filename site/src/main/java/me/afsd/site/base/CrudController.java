@@ -1,6 +1,7 @@
 package me.afsd.site.base;
 
 import me.afsd.dao.base.query.Query;
+import me.afsd.service.base.BaseException;
 import me.afsd.service.base.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,7 +18,7 @@ import java.io.Serializable;
  * Date: 2016/3/7
  * Time: 14:43
  */
-public abstract class CrudController<T, ID extends Serializable,F extends BaseForm<T,ID>,Q extends Query<T>> extends BaseController{
+public abstract class CrudController<T, ID extends Serializable, F extends BaseForm<T, ID>, Q extends Query<T>> extends BaseController {
     @Autowired(required = false)
     protected BaseService<T, ID> service;
 
@@ -43,7 +44,7 @@ public abstract class CrudController<T, ID extends Serializable,F extends BaseFo
     public BaseDataResponse add(@RequestBody @Valid F form, BindingResult bindingResult) {
         if (bindingResult.hasErrors())
             return BaseDataResponse.validationFail(bindingResult);
-        service.save(form.as());
+        service.save(form.as()).orElseThrow(() -> new BaseException("添加失败"));
         return BaseDataResponse.ok().action(CrudAction.ADD_SUCCESS(service.getDomainName(), form.getName(), getListUrl()));
     }
 
@@ -58,13 +59,13 @@ public abstract class CrudController<T, ID extends Serializable,F extends BaseFo
     protected String edit(ID id, String title, Model model, Boolean goBack) {
         this.setPageTitle(model, title);
         if (goBack) this.enableGoBack(model);
-        T t = service.getOne(id);
+        T t = service.getOne(id).orElseThrow(() -> new BaseException(service.getDomainName() + "不存在"));
         model.addAttribute(ATTRIBUTOR_FORM, getForm(t));
         return getFormUrl();
     }
 
     public BaseDataResponse edit(F form, BindingResult bindingResult) {
-        T persist = service.getOne(form.getId());
+        T persist = service.getOne(form.getId()).orElseThrow(() -> new BaseException(service.getDomainName() + "数据不存在"));
         if (persist == null)
             return BaseDataResponse.nodata();
         if (bindingResult.hasErrors())
@@ -75,7 +76,7 @@ public abstract class CrudController<T, ID extends Serializable,F extends BaseFo
     }
 
     public BaseDataResponse delete(@PathVariable ID id) {
-        T t = service.getOne(id);
+        T t = service.getOne(id).orElseThrow(() -> new BaseException(service.getDomainName() + "数据不存在"));
         if (t == null)
             return BaseDataResponse.nodata();
         service.delete(t);
