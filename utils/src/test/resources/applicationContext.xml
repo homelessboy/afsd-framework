@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--由于底层使用的是JPA框架，所以这个地方必须加上anntation-config-->
+    <!--参考博文:http://m.blog.csdn.net/blog/wzmmao/21990397-->
+    <!--配置扫描类包，使注解生效-->
+    <context:annotation-config/>
+    <!--<context:component-scan base-package="me.afsd.domain"/>-->
+
+    <!--加载db配置文件-->
+    <context:property-placeholder location="classpath:db.properties"/>
+    <!--配置数据源-->
+    <bean id="dataSource_1" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close" scope="singleton">
+        <property name="username" value="${db.username1}"/>
+        <property name="password" value="${db.password1}"/>
+        <property name="driverClassName" value="${db.driver}"/>
+        <property name="url" value="${db.jdbcURL.1}"/>
+        <property name="validationQuery" value="select 1"/>
+    </bean>
+
+    <bean id="dataSource_2" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close" scope="singleton">
+        <property name="username" value="${db.username2}"/>
+        <property name="password" value="${db.password2}"/>
+        <property name="driverClassName" value="${db.driver}"/>
+        <property name="url" value="${db.jdbcURL.2}"/>
+        <property name="validationQuery" value="select 1"/>
+    </bean>
+
+    <bean id="jdbcTemplate_1" class="org.springframework.jdbc.core.JdbcTemplate" abstract="false" lazy-init="false"
+          autowire="default">
+        <property name="dataSource" ref="dataSource_1"/>
+    </bean>
+
+    <bean id="jdbcTemplate_2" class="org.springframework.jdbc.core.JdbcTemplate" abstract="false" lazy-init="false"
+          autowire="default">
+        <property name="dataSource" ref="dataSource_2"/>
+    </bean>
+
+    <bean id="txManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource_2"/>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="txManager" proxy-target-class="false"/>
+</beans>
