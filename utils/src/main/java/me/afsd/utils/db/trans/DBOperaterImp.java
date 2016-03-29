@@ -1,5 +1,6 @@
 package me.afsd.utils.db.trans;
 
+import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,16 +17,16 @@ public class DBOperaterImp implements IDBOperater {
     Connection connection;
     int pitchCount=800;
 
-    public DBOperaterImp(Connection connection) throws SQLException {
-        this("%", connection);
+    public DBOperaterImp(DataSource dataSource) throws SQLException {
+        this("%", dataSource);
     }
 
-    public DBOperaterImp(String schemaPattern, Connection connection) throws SQLException {
-        this(schemaPattern, "%", connection);
+    public DBOperaterImp(String schemaPattern, DataSource dataSource) throws SQLException {
+        this(schemaPattern, "%", dataSource);
     }
 
-    public DBOperaterImp(String schemaPattern, String tableNamePattern, Connection connection) throws SQLException {
-        this.connection=connection;
+    public DBOperaterImp(String schemaPattern, String tableNamePattern, DataSource dataSource) throws SQLException {
+        this.connection=dataSource.getConnection();
         dbInfo = new DBInfo(schemaPattern, tableNamePattern, connection);
     }
 

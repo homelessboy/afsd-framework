@@ -1,11 +1,7 @@
-import com.alibaba.druid.pool.DruidDataSource;
-import me.afsd.utils.db.trans.DBOperaterImp;
-import me.afsd.utils.db.trans.IDBOperater;
-import me.afsd.utils.db.trans.TransferHandler;
+import me.afsd.utils.db.trans.AutomTrans;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -19,19 +15,12 @@ import java.sql.SQLException;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:applicationContext.xml"})
 public class DbTransTest {
-    @Qualifier("dataSource_1")
-    @Autowired
-    DruidDataSource fromDataSource;
 
-    @Qualifier("dataSource_2")
     @Autowired
-    DruidDataSource toDataSource;
+    AutomTrans automTrans;
 
     @Test
     public void test() throws SQLException {
-        IDBOperater toDBOperater = new DBOperaterImp("public", fromDataSource.getConnection());
-        IDBOperater fromDBOperater = new DBOperaterImp("public", toDataSource.getConnection());
-        TransferHandler handler = new TransferHandler(fromDBOperater, toDBOperater);
-        handler.handler("public.test", "public.test", (dataFieldses -> null));
+        automTrans.startTrans();
     }
 }
