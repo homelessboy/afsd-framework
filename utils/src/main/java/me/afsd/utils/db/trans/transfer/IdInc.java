@@ -20,7 +20,7 @@ public class IdInc implements DataTransfer {
         dataFieldses.forEach(tmp->{
             Long id= (Long) tmp.getValue(idColumn);
             id=id.longValue()+step;
-            tmp.putValue("idColumn",id);
+            tmp.putValue(idColumn,id);
         });
         return dataFieldses;
     }
