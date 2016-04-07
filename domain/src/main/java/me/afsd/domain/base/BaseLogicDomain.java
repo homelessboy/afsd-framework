@@ -12,7 +12,7 @@ import java.io.Serializable;
  * Time: 16:11
  */
 @MappedSuperclass
-public class BaseLogicDomain<FK extends Serializable> extends AbstractPersistable<FK> implements CanLogicDomain<FK>{
+public class BaseLogicDomain<FK extends Serializable> extends BaseDomain<FK> implements CanLogicDomain<FK>{
 
     @Column
     private Boolean del=Boolean.FALSE;

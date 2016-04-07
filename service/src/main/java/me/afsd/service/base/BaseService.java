@@ -21,63 +21,63 @@ import java.util.Optional;
 @NoRepositoryBean
 public abstract class BaseService<T,ID extends Serializable> {
     @Autowired
-    protected BaseRepository<T,ID> repository;
+    protected BaseRepository<T,ID> dao;
     @Autowired(required = false)
     protected BaseBiz<T,ID> biz;
 
     public <S extends T> Optional<S> save(S entity) {
         System.out.println(entity.getClass().getName());
         if(biz!=null) biz.save(entity);
-        return Optional.ofNullable(repository.save(entity));
+        return Optional.ofNullable(dao.save(entity));
     }
 
     public <S extends T> Iterable<S> save(Iterable<S> entities) {
         if(biz!=null) biz.save(entities);
-        return repository.save(entities);
+        return dao.save(entities);
     }
 
     public <S extends T> Optional<S> saveAndFlush(S entity) {
         if(biz!=null) biz.saveAndFlush(entity);
-        return Optional.ofNullable(repository.saveAndFlush(entity));
+        return Optional.ofNullable(dao.saveAndFlush(entity));
     }
 
     public void flush(){
-        repository.flush();
+        dao.flush();
     }
 
     public Optional<T> getOne(ID id) {
-        return Optional.ofNullable(repository.getOne(id));
+        return Optional.ofNullable(dao.getOne(id));
     }
 
     public void delete(ID id){
         if(biz!=null) biz.delete(id);
-        repository.delete(id);
+        dao.delete(id);
     }
 
     public void delete(T entity) {
         if(biz!=null) biz.delete(entity);
-        repository.delete(entity);
+        dao.delete(entity);
     }
 
     public void delete(Iterable<? extends T> entities){
         if(biz!=null) biz.delete(entities);
-        repository.delete(entities);
+        dao.delete(entities);
     }
 
     public List<T> findAll(){
-        return repository.findAll();
+        return dao.findAll();
     }
 
     public List<T> findAll(Specification<T> spec){
-        return repository.findAll(spec);
+        return dao.findAll(spec);
     }
 
     public List<T> findAll(Specification<T> spec,Sort sort){
-        return repository.findAll(spec, sort);
+        return dao.findAll(spec, sort);
     }
 
     public Page<T> findAll(Specification spec,Pageable pageable){
-        return repository.findAll(spec, pageable);
+        return dao.findAll(spec, pageable);
     }
 
     public Page<T> findAll(Query<T> query){
@@ -85,7 +85,7 @@ public abstract class BaseService<T,ID extends Serializable> {
     }
 
     public String getDomainName(){
-        return repository.getDomainName();
+        return dao.getDomainName();
     }
 
 }

@@ -22,9 +22,8 @@ import java.util.Optional;
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ICompanyDaoTest {
 
-    @Qualifier("companyRepository")
     @Autowired
-    private CompanyRepository companyRepository;
+    private CompanyDao companyDao;
 
     @Autowired
     private CompanyService companyService;
@@ -64,15 +63,16 @@ public class ICompanyDaoTest {
     @Test
     public void testSave(){
         Company company=new Company();
+        company.setId(3l);
         company.setName("test4");
-        company.setAddress("天堂路8号");
+        company.setAddress("天堂路81号");
         companyService.save(company);
         System.out.println("in");
     }
 
     @Test
     public void testFindByName(){
-        List<Company> companies=companyRepository.findByName("test4");
+        List<Company> companies=companyDao.findByName("test4");
         System.out.println(companies.size());
     }
 

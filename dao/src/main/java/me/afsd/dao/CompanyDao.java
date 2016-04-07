@@ -14,6 +14,6 @@ import java.util.List;
  * Time: 17:41
  */
 @Repository
-public interface CompanyRepository extends BaseNameResitory<Company, Long> {
-    Company findById(Long id);
+public interface CompanyDao extends BaseNameResitory<Company, Long> {
+//    Company findById(Long id);
 }
