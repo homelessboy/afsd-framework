@@ -9,6 +9,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import javax.persistence.Id;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 
 /**
  * User: afsd
@@ -21,43 +24,29 @@ import javax.persistence.Id;
 @EntityListeners({AuditingEntityListener.class})
 public class Company extends BaseDomain<Long> {
 
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
     @Column
     private String name;
 
     @Column()
     private String address;
 
+    @OneToMany(cascade = CascadeType.ALL,mappedBy="company",orphanRemoval = true)
+    public Collection<Employee> employeeList;
+
     @Column
     @Enumerated(EnumType.STRING)
     private Status status=Status.online;
 
-    enum Status implements StringRemarkEnmu{
-        online("上线"),offline("下线");
-
-        private String remark;
-        Status(String remark){
-            this.remark=remark;
-        }
-
-        @Override
-        public String getRemark() {
-            return null;
-        }
-        public boolean equal(Status status){
-            return this.name().equals(status.name());
-        }
-    }
-
     public Company(){
         super();
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public Status getStatus() {
+        return status;
     }
 
     public String getName() {
@@ -74,5 +63,30 @@ public class Company extends BaseDomain<Long> {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Collection<Employee> getEmployeeList() {
+        return employeeList;
+    }
+
+    public void setEmployeeList(List<Employee> employeeList) {
+        this.employeeList = employeeList;
+    }
+
+    enum Status implements StringRemarkEnmu{
+        online("上线"),offline("下线");
+
+        private String remark;
+        Status(String remark){
+            this.remark=remark;
+        }
+
+        @Override
+        public String getRemark() {
+            return null;
+        }
+        public boolean equal(Status status){
+            return this.name().equals(status.name());
+        }
     }
 }

@@ -1,23 +1,29 @@
 package me.afsd.dao;
 
 import me.afsd.domain.Company;
+import me.afsd.domain.Employee;
 import me.afsd.service.CompanyService;
 import me.afsd.service.base.BaseException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Optional;
+import javax.persistence.criteria.*;
+import java.util.*;
 
 /**
  * User: afsd
  * Date: 2016/1/26
  * Time: 17:49
  */
+@Transactional
+@Rollback(false)
 @ContextConfiguration({"classpath:applicationContext.xml", "classpath:springmvc-servlet.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ICompanyDaoTest {
@@ -63,11 +69,39 @@ public class ICompanyDaoTest {
     @Test
     public void testSave(){
         Company company=new Company();
-        company.setId(3l);
         company.setName("test4");
         company.setAddress("天堂路81号");
+        Employee employee1=new Employee();
+        employee1.setCompany(company);
+        employee1.setName("12");
+        Employee employee2=new Employee();
+        employee2.setName("1222");
+        employee2.setCompany(company);
+
+        List<Employee> employees = new ArrayList<>();
+        employees.add(employee1);
+        employees.add(employee2);
+        company.setEmployeeList(employees);
+
         companyService.save(company);
         System.out.println("in");
+    }
+
+    @Test
+    public void testdd(){
+        Company company=companyDao.findOne(10l);
+        company.setName(company.getName()+"1");
+        company.getEmployeeList().remove(0);
+        companyDao.save(company);
+    }
+
+    @Test
+    public void testFind(){
+        List<Company> companies=companyDao.findAll((root, query, cb) -> {
+            Predicate predicate=cb.like(root.joinCollection("employeeList").get("name"),"%122%");
+            return predicate;
+        });
+        System.out.println(companies.size());
     }
 
     @Test
