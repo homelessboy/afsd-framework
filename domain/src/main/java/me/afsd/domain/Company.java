@@ -31,7 +31,7 @@ public class Company extends BaseDomain<Long> {
     private String address;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy="company",orphanRemoval = true)
-    public Collection<Employee> employeeList;
+    public List<Employee> employeeList;
 
     @Column
     @Enumerated(EnumType.STRING)
@@ -65,7 +65,7 @@ public class Company extends BaseDomain<Long> {
         this.address = address;
     }
 
-    public Collection<Employee> getEmployeeList() {
+    public List<Employee> getEmployeeList() {
         return employeeList;
     }
 
