@@ -73,9 +73,9 @@ public class ICompanyDaoTest {
         company.setAddress("天堂路81号");
         Employee employee1=new Employee();
         employee1.setCompany(company);
-        employee1.setName("12");
+        employee1.setName("13");
         Employee employee2=new Employee();
-        employee2.setName("1222");
+        employee2.setName("13");
         employee2.setCompany(company);
 
         List<Employee> employees = new ArrayList<>();
@@ -98,7 +98,9 @@ public class ICompanyDaoTest {
     @Test
     public void testFind(){
         List<Company> companies=companyDao.findAll((root, query, cb) -> {
-            Predicate predicate=cb.like(root.joinCollection("employeeList").get("name"),"%122%");
+            Predicate predicate=cb.like(root.join("employeeList").get("name"),"%13%");
+            query.distinct(true);
+         //   query.multiselect(root.get("id"));
             return predicate;
         });
         System.out.println(companies.size());

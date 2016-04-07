@@ -51,6 +51,12 @@ public class Query<T> implements Serializable {
     class QueryWordSpecification implements Specification<T> {
         private Query<T> query;
         private List<Field> fieldList = new ArrayList<>();
+        private boolean distinct=false;
+
+        public QueryWordSpecification(Query<T> query,boolean distinct){
+            this(query);
+            this.distinct=distinct;
+        }
 
         public QueryWordSpecification(Query<T> query) {
             this.query = query;
@@ -65,7 +71,8 @@ public class Query<T> implements Serializable {
         public Predicate toPredicate(Root root, CriteriaQuery cq, CriteriaBuilder cb) {
             Predicate predicate = null;
             Field[] fields = query.getClass().getDeclaredFields();
-
+            if(distinct)
+                cq.distinct(true);
             if (fields != null) {
                 for (Field field : fieldList) {
                     QueryWord queryWord = field.getAnnotation(QueryWord.class);
