@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class BaseBiz <T,ID extends Serializable> {
 
     @Autowired
-    protected BaseRepository<T,ID> repository;
+    protected BaseRepository<T,ID> dao;
 
     public <S extends T> void save(S entity) {
     }

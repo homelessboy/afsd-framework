@@ -42,7 +42,7 @@
         <property name="packagesToScan">
             <array>
                 <!--<value>com.simpletour.user.domain</value>-->
-                <!--<value>me.afsd.domain</value>-->
+                <value>me.afsd.domain</value>
             </array>
         </property>
         <!-- 指定JPA属性；如Hibernate中指定是否显示SQL的是否显示、方言等 -->

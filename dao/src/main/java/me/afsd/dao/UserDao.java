@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
  * Time: 11:39
  */
 @Repository
-public interface UserRepository extends BaseRepository<User,Long> {
+public interface UserDao extends BaseRepository<User,Long> {
 }
