@@ -66,7 +66,7 @@ public class BaseRepositoryImpl<T, ID extends Serializable>
         return super.getCountQuery(getSpecification(spec));
     }
 
-    private Specification<T> getSpecification(Specification<T> spec) {
+    protected Specification<T> getSpecification(Specification<T> spec) {
         LogicSpecification logicSpecification = new LogicSpecification();
         spec = Specifications.where(spec).and(logicSpecification);
         return spec;
