@@ -5,9 +5,8 @@ import org.springframework.data.domain.Persistable;
 import java.util.List;
 
 /**
- * User: afsd
- * Date: 2016/3/31
- * Time: 15:16
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 public interface IDataGenerator{
     List<Persistable> generator();

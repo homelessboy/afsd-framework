@@ -5,9 +5,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * User: afsd
- * Date: 2016/3/29
- * Time: 14:41
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 public class AutomTrans {
     private String[] tableNames;

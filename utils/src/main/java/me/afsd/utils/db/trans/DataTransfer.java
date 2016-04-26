@@ -3,9 +3,8 @@ package me.afsd.utils.db.trans;
 import java.util.List;
 
 /**
- * User: afsd
- * Date: 2016/3/29
- * Time: 13:44
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 @FunctionalInterface
 public interface DataTransfer {

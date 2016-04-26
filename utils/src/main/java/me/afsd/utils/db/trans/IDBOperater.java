@@ -4,9 +4,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * User: afsd
- * Date: 2016/3/29
- * Time: 13:26
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 public interface IDBOperater {
     List<DataFields> getTableData(String tableName) throws SQLException;

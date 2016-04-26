@@ -8,7 +8,6 @@ import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
 
-import java.io.IOException;
 import java.util.Map;
 
 /**

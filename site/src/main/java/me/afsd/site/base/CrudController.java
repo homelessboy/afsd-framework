@@ -19,7 +19,7 @@ import java.io.Serializable;
  * Time: 14:43
  */
 public abstract class CrudController<T, ID extends Serializable, F extends BaseForm<T, ID>, Q extends Query<T>> extends BaseController {
-    @Autowired(required = false)
+    @Autowired
     protected BaseService<T, ID> service;
 
     private static final String ATTRIBUTOR_FORM = "viewForm";

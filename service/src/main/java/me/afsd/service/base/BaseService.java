@@ -14,9 +14,8 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * User: afsd
- * Date: 2016/3/3
- * Time: 16:49
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 @NoRepositoryBean
 public abstract class BaseService<T,ID extends Serializable> {

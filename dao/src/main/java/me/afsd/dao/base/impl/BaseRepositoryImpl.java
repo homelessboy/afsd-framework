@@ -22,9 +22,8 @@ import javax.persistence.criteria.Root;
 import java.io.Serializable;
 
 /**
- * User: afsd
- * Date: 2016/1/28
- * Time: 20:13
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 @NoRepositoryBean
 public class BaseRepositoryImpl<T, ID extends Serializable>

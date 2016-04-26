@@ -8,9 +8,8 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 /**
- * User: afsd
- * Date: 2016/3/31
- * Time: 15:18
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 public abstract class AbstractDataGenerator implements IDataGenerator{
     protected List<Persistable> domains = new ArrayList<>();

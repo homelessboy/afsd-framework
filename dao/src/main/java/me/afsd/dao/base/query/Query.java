@@ -14,9 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * User: afsd
- * Date: 2016/2/29
- * Time: 17:39
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 public class Query<T> implements Serializable {
     private Pageable pageable;
@@ -148,7 +147,7 @@ public class Query<T> implements Serializable {
 //            }
 //        }
         //TODO: 后续支持查询丰富的排序接口
-        return !orders.isEmpty() ? DEFAULT_SORT : new Sort(orders);
+        return orders.isEmpty() ? DEFAULT_SORT : new Sort(orders);
     }
 
     public static String getSearchStr(String str) {

@@ -14,9 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * User: afsd
- * Date: 2016/3/4
- * Time: 16:16
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 public class BaseExceptionResolver extends SimpleMappingExceptionResolver {
 

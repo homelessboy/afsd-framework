@@ -6,10 +6,8 @@ import me.afsd.utils.db.trans.DataTransfer;
 import java.util.List;
 
 /**
- * Author：XuHui/xuhui@simpletour.com
- * Brief：
- * Date: 2016/3/29
- * Time: 14:59
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 public class IdInc implements DataTransfer {
     private String idColumn="id";

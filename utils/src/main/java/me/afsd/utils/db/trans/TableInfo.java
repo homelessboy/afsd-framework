@@ -4,9 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * User: afsd
- * Date: 2016/3/29
- * Time: 11:22
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 public class TableInfo {
     Map<String, String> columns = new HashMap<>();//<column_name,type>

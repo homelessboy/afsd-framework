@@ -1,15 +1,12 @@
 package me.afsd.domain.base;
 
-import org.springframework.data.jpa.domain.AbstractPersistable;
-
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
 /**
- * User: afsd
- * Date: 2016/2/12
- * Time: 16:11
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 @MappedSuperclass
 public class BaseLogicDomain<FK extends Serializable> extends BaseDomain<FK> implements CanLogicDomain<FK>{

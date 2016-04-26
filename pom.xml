@@ -5,14 +5,14 @@
     <groupId>me.afsd</groupId>
     <artifactId>me-afsd-framework</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
 
     <scm>
         <url>https://github.com/homelessboy/afsd-framework</url>
         <connection>scm:git:git@github.com:homelessboy/afsd-framework.git</connection>
         <developerConnection>scm:git:git@github.com:homelessboy/afsd-framework.git</developerConnection>
-      <tag>0.0.1</tag>
-  </scm>
+        <tag>0.0.1</tag>
+    </scm>
 
     <developers>
         <developer>
@@ -60,6 +60,7 @@
         <module>service</module>
         <module>site</module>
         <module>utils</module>
+        <module>example</module>
     </modules>
 
     <dependencyManagement>
@@ -77,6 +78,21 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>me-afsd-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.afsd</groupId>
+                <artifactId>me-afsd-site</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.afsd</groupId>
+                <artifactId>me-afsd-utils</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>me.afsd</groupId>
+                <artifactId>me-afsd-example</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -261,16 +277,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
         </dependency>
     </dependencies>
 

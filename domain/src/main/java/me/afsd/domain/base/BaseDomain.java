@@ -1,22 +1,16 @@
 package me.afsd.domain.base;
 
 import org.joda.time.DateTime;
-import org.springframework.data.annotation.*;
 import org.springframework.data.domain.Persistable;
 import org.springframework.util.ClassUtils;
 
 import javax.persistence.*;
-import javax.persistence.Id;
-import javax.persistence.Transient;
-import javax.persistence.Version;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author: afsd
- * Date: 2016/4/7
- * Time: 23:01
- * Brif:
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 @MappedSuperclass
 public class BaseDomain<PK extends Serializable> implements Persistable<PK> {

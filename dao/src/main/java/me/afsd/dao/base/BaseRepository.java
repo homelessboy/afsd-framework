@@ -11,9 +11,8 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * User: afsd
- * Date: 2016/1/28
- * Time: 20:12
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 @NoRepositoryBean
 public interface BaseRepository<T, ID extends Serializable>

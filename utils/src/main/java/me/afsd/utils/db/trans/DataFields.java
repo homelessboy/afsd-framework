@@ -10,9 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * User: afsd
- * Date: 2016/3/29
- * Time: 11:46
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 public class DataFields {
     Map<String, Object> fieldValues = new HashMap<>();

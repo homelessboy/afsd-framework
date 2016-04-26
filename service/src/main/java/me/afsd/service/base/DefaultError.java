@@ -1,9 +1,8 @@
 package me.afsd.service.base;
 
 /**
- * User: afsd
- * Date: 2016/3/7
- * Time: 14:27
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 public enum DefaultError implements IErrorInfo {
     NULL_OBJECT("0000","对象为空");

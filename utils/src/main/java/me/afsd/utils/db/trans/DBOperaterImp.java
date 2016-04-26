@@ -8,9 +8,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * User: afsd
- * Date: 2016/3/29
- * Time: 13:30
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 public class DBOperaterImp implements IDBOperater {
     DBInfo dbInfo;

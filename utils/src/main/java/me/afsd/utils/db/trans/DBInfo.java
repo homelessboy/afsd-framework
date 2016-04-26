@@ -1,13 +1,15 @@
 package me.afsd.utils.db.trans;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * User: afsd
- * Date: 2016/3/29
- * Time: 11:30
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 public class DBInfo {
     Map<String, TableInfo> tableInfos = new HashMap<>();

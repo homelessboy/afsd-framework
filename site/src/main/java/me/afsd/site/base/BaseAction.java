@@ -1,9 +1,8 @@
 package me.afsd.site.base;
 
 /**
- * User: afsd
- * Date: 2016/3/7
- * Time: 17:10
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 public interface BaseAction {
     String getMsg();

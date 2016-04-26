@@ -2,16 +2,14 @@ package me.afsd.site.base;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.annotation.JSONField;
-import me.afsd.service.base.BaseException;
 import org.springframework.context.MessageSource;
 import org.springframework.validation.BindingResult;
 
 import java.io.Serializable;
 
 /**
- * User: afsd
- * Date: 2016/3/7
- * Time: 14:53
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 public class BaseDataResponse implements Serializable, Cloneable {
     private static final long serialVersionUID = 24163388165090429L;

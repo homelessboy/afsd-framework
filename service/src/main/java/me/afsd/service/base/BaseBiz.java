@@ -7,9 +7,8 @@ import org.springframework.data.repository.NoRepositoryBean;
 import java.io.Serializable;
 
 /**
- * User: afsd
- * Date: 2016/3/4
- * Time: 10:16
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 @NoRepositoryBean
 public class BaseBiz <T,ID extends Serializable> {

@@ -3,9 +3,8 @@ package me.afsd.site.base;
 import java.io.Serializable;
 
 /**
- * User: afsd
- * Date: 2016/3/7
- * Time: 11:08
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 public abstract class BaseForm<T,ID extends Serializable> {
     protected String model;

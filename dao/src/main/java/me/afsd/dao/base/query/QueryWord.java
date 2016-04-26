@@ -6,9 +6,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * User: afsd
- * Date: 2016/2/29
- * Time: 17:48
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)

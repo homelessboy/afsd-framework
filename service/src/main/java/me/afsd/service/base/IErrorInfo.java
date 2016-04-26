@@ -1,9 +1,8 @@
 package me.afsd.service.base;
 
 /**
- * User: afsd
- * Date: 2016/3/4
- * Time: 15:52
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 public interface IErrorInfo {
     String getNameSpace();

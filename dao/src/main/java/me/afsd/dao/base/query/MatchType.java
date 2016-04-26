@@ -1,9 +1,8 @@
 package me.afsd.dao.base.query;
 
 /**
- * User: afsd
- * Date: 2016/2/29
- * Time: 18:11
+ * @author  XuHui (416422546@qq.com)
+ * @version 0.0.1
  */
 public enum MatchType {
     eq(),
