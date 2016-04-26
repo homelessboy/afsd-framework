@@ -1,7 +1,5 @@
 package me.afsd.dao.base.query;
 
-import com.alibaba.fastjson.annotation.JSONField;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -9,7 +7,6 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.util.Assert;
 
-import javax.annotation.PostConstruct;
 import javax.persistence.criteria.*;
 import java.io.Serializable;
 import java.lang.reflect.Field;
@@ -22,10 +19,8 @@ import java.util.List;
  * Time: 17:39
  */
 public class Query<T> implements Serializable {
-    @JSONField(serialize = false)
     private Pageable pageable;
 
-    @JSONField(serialize = false)
     protected static Sort DEFAULT_SORT = new Sort(Direction.DESC, "id");
 
 
