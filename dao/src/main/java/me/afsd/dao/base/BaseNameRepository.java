@@ -10,6 +10,6 @@ import java.util.List;
  * @version 0.0.1
  */
 @NoRepositoryBean
-public interface BaseNameResitory<T,ID extends Serializable> extends  BaseRepository<T,ID>{
+public interface BaseNameRepository<T,ID extends Serializable> extends  BaseRepository<T,ID>{
     List<T> findByName(String name);
 }

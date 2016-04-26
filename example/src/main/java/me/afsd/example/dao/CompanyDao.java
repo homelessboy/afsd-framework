@@ -1,6 +1,6 @@
 package me.afsd.example.dao;
 
-import me.afsd.dao.base.BaseNameResitory;
+import me.afsd.dao.base.BaseNameRepository;
 import me.afsd.example.domain.Company;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
  * @version 0.0.1
  */
 @Repository
-public interface CompanyDao extends BaseNameResitory<Company, Long> {
+public interface CompanyDao extends BaseNameRepository<Company, Long> {
 //    Company findById(Long id);
 }
