@@ -70,7 +70,7 @@ public class BaseDomain<PK extends Serializable> implements Persistable<PK> {
         return version;
     }
 
-    public void setVersion(Integer version) {
+    public void setVersion(int version) {
         this.version = version;
     }
 
